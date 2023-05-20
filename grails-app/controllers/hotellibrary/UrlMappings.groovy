@@ -3,11 +3,8 @@ package hotellibrary
 class UrlMappings {
 
     static mappings = {
-        "/$controller/$action?/$id?(.$format)?"{
-            constraints {
-                // apply constraints here
-            }
-        }
+        "/$home/$list/$page/$searchName?"(controller: "home", action:"list")
+
 
         "/"(view:"/index")
         "500"(view:'/error')

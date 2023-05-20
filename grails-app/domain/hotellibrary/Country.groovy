@@ -2,13 +2,12 @@ package hotellibrary
 
 import groovy.transform.CompileStatic
 
-class Hotel {
+class Country {
     String name
-    Integer rating
-    static belongsTo = [country: Country]
+    String capital
 
     static constraints = {
         name maxSize: 255
-        rating min: 1, max: 5
+        capital maxSize: 128
     }
 }
