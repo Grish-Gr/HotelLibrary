@@ -7,19 +7,17 @@ class BootStrap {
     SearchHotelService searchHotelService
 
     def init = { servletContext ->
-        countryService.saveCountry("Russia", "Moscow")
-        hotelService.saveHotel("Savagresh", 4, "Russia")
-        hotelService.saveHotel("sagor", 3, "Russia")
-        hotelService.saveHotel("Svoa", 2, "Russia")
-        hotelService.saveHotel("GaSaGa", 4, "Russia")
-
-        searchHotelService.searchHotelByName("Sa").collect {
-            println it.name
-        }
-
-        hotelService.updateInfoHotel(1, "Gaga", 5, "Russia")
-        searchHotelService.searchHotelByName("sa").collect{println it.name}
-        searchHotelService.searchHotelByName("ga").collect{println it.name}
+        countryService.saveCountry("Китай", "Пекин")
+        countryService.saveCountry("Россия", "Москва")
+        countryService.saveCountry("Чехия", "Прага")
+        hotelService.saveHotel("Сарог", 4, "Россия")
+        hotelService.saveHotel("Сагор", 4, "Россия")
+        hotelService.saveHotel("Свогор", 3, "Россия")
+        hotelService.saveHotel("Логор", 4, "Россия")
+        hotelService.saveHotel("Свагор", 3, "Китай")
+        hotelService.saveHotel("Асагор", 3, "Китай")
+        hotelService.saveHotel("Асагор", 3, "Китай")
+        hotelService.saveHotel("Прошол", 5, "Чехия")
     }
     def destroy = {
 

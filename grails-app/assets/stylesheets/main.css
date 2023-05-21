@@ -7,12 +7,27 @@ body{
 .navigation_block{
     display: flex;
     flex-direction: row;
-    background: #80bdff;
+    background: #fcf7dc;
     width: 100%;
-    padding-top: 4px;
+    padding-top: 16px;
     padding-bottom: 4px;
 }
 
-.navigation_block li {
+.navigation_block a {
+    display: inline;
+    margin: 4px;
+    font-size:larger;
+    font-weight:bolder;
+}
+.list_item_container{
+    border: 1px solid #ababab;
+    border-radius: 4px;
+    display: flex;
+    margin: 4px;
+    justify-content: space-between;
+}
+.list_item_container p{
+    padding: 4px;
+    margin: 2px;
     display: inline;
 }

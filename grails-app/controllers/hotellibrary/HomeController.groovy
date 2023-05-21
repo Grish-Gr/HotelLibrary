@@ -3,10 +3,16 @@ package hotellibrary
 class HomeController {
 
     SearchHotelService searchHotelService
+    CountryService countryService
 
-    def list(Long page) {
-        println "${page} - ${params}"
-        render view: "list", model: [list: searchHotelService.searchHotelByName(params.searchName as String),
-                                     num: page]
+    def home(){
+        render view: "home", model: [countries: countryService.getCountries().name]
+    }
+
+    def search(String searchName, String country) {
+        println "search"
+        println params
+        render view: "table",
+                model: [list: searchHotelService.searchHotelByName(searchName, country)]
     }
 }

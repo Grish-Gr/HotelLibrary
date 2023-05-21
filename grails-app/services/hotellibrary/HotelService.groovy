@@ -6,6 +6,10 @@ import javassist.NotFoundException
 @Transactional
 class HotelService {
 
+    Hotel getById(Long id){
+        return Hotel.get(id)
+    }
+
     Hotel saveHotel(String name, Integer rating, String nameCountry) {
         Country country = Country.findByName(nameCountry)
         return new Hotel(name: name, rating: rating, country: country).save()
@@ -23,5 +27,9 @@ class HotelService {
             hotel.country = Country.findByName(nameCountry)
         }
         return hotel.save()
+    }
+
+    List<Hotel> getHotels(){
+        return Hotel.list()
     }
 }

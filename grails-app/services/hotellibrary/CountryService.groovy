@@ -19,4 +19,8 @@ class CountryService {
         country.capital = capital
         return country.save()
     }
+
+    List<Country> getCountries(){
+        return Country.list()
+    }
 }

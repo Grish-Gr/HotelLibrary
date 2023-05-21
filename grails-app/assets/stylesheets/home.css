@@ -1,16 +1,23 @@
-table {
-    border-collapse: collapse;
+.search_container{
     width: 100%;
-    border: 1px solid grey;
+    justify-content: center;
+    display: flex;
 }
-/* границы ячеек первого ряда таблицы */
-th {
-    text-align: left;
-    padding: 2px;
-    border: 1px solid grey;
+.form-group{
+    margin: 4px;
+    display: inline;
 }
-/* границы ячеек тела таблицы */
-td {
-    padding: 2px;
-    border: 1px solid grey;
+.submit{
+    width: 100%;
+    display: flex;
+}
+.btn-success{
+    margin-top: 8px;
+    flex-grow: 100;
+}
+.form_search{
+    margin-top: 128px;
+    border-radius: 8px;
+    border: 1px solid black;
+    padding: 16px 48px;
 }
