@@ -17,21 +17,25 @@
     </nav>
     <div class="main">
         <p>Количество найденных отелей: ${list.size()}</p>
-        <g:link controller="home" action="home">Начать новый поиск</g:link>
+        <g:link controller="home" action="home">
+            <button class="btn btn-outline-secondary">Начать новый поиск</button>
+        </g:link>
         <table>
-            <tr><th>Рейтинг</th><th>Название</th><th>Сайт</th></tr>
-            <g:each in="${list}" var="hotel">
-                <tr>
-                    <td>${hotel.rating}</td>
-                    <td>${hotel.name}</td>
-                    <td>
-                        <g:if test="${hotel.linkToWebsite != null}">
-                            <g:link url="${hotel.linkToWebsite}">Перейти на сайт</g:link>
-                        </g:if>
-                        <g:else>Нет данных о сайте</g:else>
-                    </td>
-                </tr>
-            </g:each>
+            <g:if test="${list.size() > 0}">
+                <tr><th>Рейтинг</th><th>Название</th><th>Сайт</th></tr>
+                <g:each in="${list}" var="hotel">
+                    <tr>
+                        <td>${hotel.rating}</td>
+                        <td>${hotel.name}</td>
+                        <td>
+                            <g:if test="${hotel.linkToWebsite != null}">
+                                <g:link url="${hotel.linkToWebsite}">Перейти на сайт</g:link>
+                            </g:if>
+                            <g:else>Нет данных о сайте</g:else>
+                        </td>
+                    </tr>
+                </g:each>
+            </g:if>
         </table>
     </div>
 </body>

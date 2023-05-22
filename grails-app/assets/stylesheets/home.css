@@ -7,6 +7,13 @@
     margin: 4px;
     display: inline;
 }
+.title_form_search{
+    font-weight:lighter;
+    font-family:serif;
+    color: #3a3a3d;
+    margin-left: 4px;
+    margin-bottom: 16px;
+}
 .submit{
     width: 100%;
     display: flex;
@@ -18,6 +25,6 @@
 .form_search{
     margin-top: 128px;
     border-radius: 8px;
-    border: 1px solid black;
+    border: 1px solid #ababab;
     padding: 16px 48px;
 }

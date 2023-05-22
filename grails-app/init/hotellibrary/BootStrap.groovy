@@ -11,11 +11,11 @@ class BootStrap {
         countryService.saveCountry("Чехия", "Прага")
         countryService.saveCountry("Китай", "Пекин")
 
-        hotelService.saveHotel("Англетер", 4, "Россия", "https://www.angleterrehotel.ru/")
-        hotelService.saveHotel("Марриотт Москва Гранд", 5, "Россия", "https://moscowgrandhotel.ru/")
         hotelService.saveHotel("Счастливый Пушкин", 4, "Россия")
         hotelService.saveHotel("Парус", 5, "Россия", "https://hotel-parus.com/")
         hotelService.saveHotel("Людмила", 2, "Россия")
+        hotelService.saveHotel("Англетер", 4, "Россия", "https://www.angleterrehotel.ru/")
+        hotelService.saveHotel("Марриотт Москва Гранд", 5, "Россия", "https://moscowgrandhotel.ru/")
         hotelService.saveHotel("Надежда", 1, "Россия")
         hotelService.saveHotel("Старый странник", 3, "Россия", "https://strannik-hotel.ru/")
         hotelService.saveHotel("Сьерра-Мадре", 5, "США")

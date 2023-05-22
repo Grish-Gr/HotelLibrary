@@ -18,9 +18,10 @@
 <div class="main">
     <div class="search_container">
         <div class="form_search">
+            <h3 class="title_form_search">Справочник отелей</h3>
             <g:form controller="home" action="search" class="form" method="post">
                 <div class="form-group">
-                    <g:textField name="searchName" required="" placeholder="Поиск отеля"/>
+                    <g:textField name="searchName" placeholder="Название отеля"/>
                 </div>
                 <div class="form-group">
                     <g:select name="country" from="${countries}"

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Главная</title>
+    <title>Изменить страну</title>
     <asset:stylesheet src="main.css"/>
     <asset:stylesheet src="bootstrap.css"/>
 </head>

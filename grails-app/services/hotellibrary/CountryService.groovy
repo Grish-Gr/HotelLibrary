@@ -16,7 +16,7 @@ class CountryService {
 
     Country deleteCountry(Long id){
         Country country = Country.get(id)
-        Hotel.findByCountry(country).delete()
+        Hotel.findAllByCountry(country).collect({ it -> it.delete() })
         return country.delete()
     }
 

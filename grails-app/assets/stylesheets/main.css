@@ -39,6 +39,7 @@ footer{
 .list_item_container{
     border: 1px solid #ababab;
     border-radius: 4px;
+    padding: 4px;
     display: flex;
     margin: 4px;
     justify-content: space-between;

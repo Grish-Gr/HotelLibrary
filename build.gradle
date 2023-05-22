@@ -31,7 +31,6 @@ configurations {
         extendsFrom developmentOnly
     }
 }
-
 dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     compile "org.springframework.boot:spring-boot-starter-logging"
@@ -93,7 +92,10 @@ tasks.withType(GroovyCompile) {
 }
 
 webdriverBinaries {
-    chromedriver '2.45.0'
+    chromedriver {
+        version = '2.45.0'
+        architecture = 'X86'
+    }
     geckodriver '0.24.0'
 }
 

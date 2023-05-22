@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Результат поиска</title>
+    <title>Отели</title>
     <asset:stylesheet src="main.css"/>
     <asset:stylesheet src="bootstrap.css"/>
 </head>
@@ -28,7 +28,7 @@
                     <p>Отель: ${hotel.name}</p>
                 </g:link>
             </div>
-            <p>Местоположение: ${hotel.country.name}, ${hotel.country.capital}</p>
+            <p>Местоположение: ${hotel.country.name}</p>
         </div>
     </g:each>
 </div>
