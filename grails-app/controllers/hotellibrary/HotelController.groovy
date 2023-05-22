@@ -5,7 +5,11 @@ class HotelController {
     CountryService countryService
 
     def hotels(Integer page) {
-        render view: "hotels", model: [listHotel: hotelService.getHotels()]
+        def res = hotelService.getHotels(page ?: 0)
+        render view: "hotels", model: [listHotel: res.hotels,
+                                       page: page ?: 0,
+                                       hasPrev: res.hasPrev,
+                                       hasNext: res.hasNext]
     }
 
     def hotel(Long id){
@@ -18,7 +22,6 @@ class HotelController {
     }
 
     def createHotel(){
-        println(params)
         hotelService.saveHotel(
                 params.hotelName as String,
                 Integer.parseInt(params.rating),

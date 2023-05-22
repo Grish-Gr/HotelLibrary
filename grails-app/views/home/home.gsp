@@ -12,7 +12,7 @@
     <ul>
         <g:link controller="home" action="home">Главная</g:link>
         <g:link controller="hotel" action="hotels">Отели</g:link>
-        <g:link controller="country" action="index">Страны</g:link>
+        <g:link controller="country" action="countries">Страны</g:link>
     </ul>
 </nav>
 <div class="main">
@@ -25,7 +25,7 @@
                 <div class="form-group">
                     <g:select name="country" from="${countries}"
                               optionValue="" optionKey=""
-                              noSelection="${['null':'Поиск по всем странам']}"/>
+                              noSelection="${['null':'Любая']}"/>
                 </div>
                 <fieldset class="submit">
                     <g:submitButton name="send" value="Найти" class="btn btn-success" />

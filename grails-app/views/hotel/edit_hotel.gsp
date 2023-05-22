@@ -11,7 +11,7 @@
     <ul>
         <g:link controller="home" action="home">Главная</g:link>
         <g:link controller="hotel" action="hotels">Отели</g:link>
-        <g:link controller="country" action="index">Страны</g:link>
+        <g:link controller="country" action="countries">Страны</g:link>
     </ul>
 </nav>
 <div class="main">

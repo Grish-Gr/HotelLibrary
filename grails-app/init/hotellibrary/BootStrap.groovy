@@ -18,6 +18,9 @@ class BootStrap {
         hotelService.saveHotel("Асагор", 3, "Китай")
         hotelService.saveHotel("Асагор", 3, "Китай")
         hotelService.saveHotel("Прошол", 5, "Чехия")
+        hotelService.saveHotel("Ролвш", 4, "Чехия")
+        hotelService.saveHotel("Людмила", 3, "Россия")
+        hotelService.saveHotel("Надежда", 2, "Россия")
     }
     def destroy = {
 

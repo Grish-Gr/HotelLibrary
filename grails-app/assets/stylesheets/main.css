@@ -1,8 +1,25 @@
 body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     margin: 0px;
+}
+footer{
+    flex: 0 0 auto;
+    padding: 16px;
+}
+.pagination_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination_container div{
+    width: 50%;
+    margin: 4px;
 }
 .main{
     margin: 8px;
+    flex: 1 0 auto;
 }
 .navigation_block{
     display: flex;

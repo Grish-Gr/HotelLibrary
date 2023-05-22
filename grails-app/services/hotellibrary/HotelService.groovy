@@ -6,6 +6,8 @@ import javassist.NotFoundException
 @Transactional
 class HotelService {
 
+    private final maxItemsInPage = 10
+
     Hotel getById(Long id){
         return Hotel.get(id)
     }
@@ -29,7 +31,9 @@ class HotelService {
         return hotel.save()
     }
 
-    List<Hotel> getHotels(){
-        return Hotel.list()
+    def getHotels(Integer page){
+        return [hotels: Hotel.list().drop(page * maxItemsInPage).take(maxItemsInPage),
+                hasPrev: page > 0,
+                hasNext: Hotel.count() > maxItemsInPage * (page + 1)]
     }
 }

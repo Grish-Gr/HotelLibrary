@@ -16,22 +16,17 @@
 </nav>
 <div class="main">
     <div style="margin: 16px">
-        <g:form controller="hotel" action="createHotel" method="post">
-            <g:hiddenField name="id"/>
+        <g:form controller="country" action="createCountry" method="post">
             <div class="form-group">
-                <label for="hotelName">Название отеля</label>
-                <g:textField name="hotelName" required="" placeholder="Название отеля"/>
+                <label for="countryName">Название страны</label>
+                <g:textField name="countryName" required="" placeholder="Название страны"/>
             </div>
             <div class="form-group">
-                <label for="rating">Рейтинг</label>
-                <g:select name="rating" from="[1, 2, 3, 4, 5]"/>
-            </div>
-            <div class="form-group">
-                <label for="country">Название страны</label>
-                <g:select name="country" from="${countries}"/>
+                <label for="capitalName">Столица</label>
+                <g:textField name="capitalName" required="" placeholder="Название столицы"/>
             </div>
             <div class="btn-group">
-                <g:submitButton name="editHotel" value="Добавить отель" class="btn btn-outline-success"/>
+                <g:submitButton name="createCountry" value="Добавить страну" class="btn btn-outline-success"/>
             </div>
         </g:form>
     </div>

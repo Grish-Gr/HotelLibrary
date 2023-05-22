@@ -16,19 +16,16 @@
 </nav>
 <div class="main">
     <div style="margin: 16px 6px">
-        <g:link controller="hotel" action="hotel">
-            <button type="button" class="btn btn-outline-secondary">Добавить отель в базу</button>
+        <g:link controller="country" action="country">
+            <button type="button" class="btn btn-outline-secondary">Добавить страну в базу</button>
         </g:link>
     </div>
-    <g:each in="${listHotel}" var="hotel">
+    <g:each in="${listCountry}" var="country">
         <div class="list_item_container">
-            <div>
-                <p>Рейтинг: ${hotel.rating} звезды</p>
-                <g:link controller="hotel" action="hotel" params="[id: hotel.id]">
-                    <p>Отель: ${hotel.name}</p>
-                </g:link>
-            </div>
-            <p>Местоположение: ${hotel.country.name}, ${hotel.country.capital}</p>
+            <g:link controller="country" action="country" params="[id: country.id]">
+                <p>Название: ${country.name}</p>
+            </g:link>
+            <p>Столица: ${country.capital}</p>
         </div>
     </g:each>
 </div>
@@ -36,14 +33,14 @@
     <div class="pagination_container">
         <div style="text-align: right">
             <g:if test="${hasPrev}">
-                <g:link controller="hotel" action="hotels" params="[page: page - 1]">
+                <g:link controller="country" action="countries" params="[page: page - 1]">
                     <button type="button" class="btn btn-outline-secondary">Назад</button>
                 </g:link>
             </g:if>
         </div>
         <div>
             <g:if test="${hasNext}">
-                <g:link controller="hotel" action="hotels" params="[page: page + 1]">
+                <g:link controller="country" action="countries" params="[page: page + 1]">
                     <button type="button" class="btn btn-outline-secondary">Дальше</button>
                 </g:link>
             </g:if>

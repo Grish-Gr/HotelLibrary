@@ -10,8 +10,6 @@ class HomeController {
     }
 
     def search(String searchName, String country) {
-        println "search"
-        println params
         render view: "table",
                 model: [list: searchHotelService.searchHotelByName(searchName, country)]
     }

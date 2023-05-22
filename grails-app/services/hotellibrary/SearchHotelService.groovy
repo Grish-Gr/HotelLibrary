@@ -2,7 +2,6 @@ package hotellibrary
 
 import grails.gorm.transactions.Transactional
 import org.grails.datastore.mapping.query.api.BuildableCriteria
-import org.hibernate.Criteria
 
 @Transactional
 class SearchHotelService {
