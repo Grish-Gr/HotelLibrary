@@ -19,11 +19,11 @@
         <g:form controller="country" action="createCountry" method="post">
             <div class="form-group">
                 <label for="countryName">Название страны</label>
-                <g:textField name="countryName" required="" placeholder="Название страны"/>
+                <g:textField name="countryName" required="true" placeholder="Название страны"/>
             </div>
             <div class="form-group">
                 <label for="capitalName">Столица</label>
-                <g:textField name="capitalName" required="" placeholder="Название столицы"/>
+                <g:textField name="capitalName" required="true" placeholder="Название столицы"/>
             </div>
             <div class="btn-group">
                 <g:submitButton name="createCountry" value="Добавить страну" class="btn btn-outline-success"/>

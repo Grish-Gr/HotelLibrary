@@ -23,6 +23,11 @@
                 <g:textField name="hotelName" required="" placeholder="Название отеля" value="${hotelInfo.name}"/>
             </div>
             <div class="form-group">
+                <label for="linkToWebsite">Ссылка на сайт</label>
+                <input type="url" name="linkToWebsite" value="${hotelInfo.linkToWebsite}"
+                       id="linkToWebsite" placeholder="https://your-hotel.com"/>
+            </div>
+            <div class="form-group">
                 <label for="rating">Рейтинг</label>
                 <g:select name="rating" from="[1, 2, 3, 4, 5]"
                           optionValue="" optionKey=""

@@ -12,19 +12,20 @@ class HotelService {
         return Hotel.get(id)
     }
 
-    Hotel saveHotel(String name, Integer rating, String nameCountry) {
+    Hotel saveHotel(String name, Integer rating, String nameCountry, String linkToWebsite = null) {
         Country country = Country.findByName(nameCountry)
-        return new Hotel(name: name, rating: rating, country: country).save()
+        return new Hotel(name: name, rating: rating, country: country, linkToWebsite: linkToWebsite).save()
     }
 
     Hotel deleteHotel(Long id){
         return Hotel.get(id).delete()
     }
 
-    Hotel updateInfoHotel(Long id, String name, Integer rating, String nameCountry){
+    Hotel updateInfoHotel(Long id, String name, Integer rating, String nameCountry, String linkToWebsite){
         Hotel hotel = Hotel.get(id)
         hotel.name = name
         hotel.rating = rating
+        hotel.linkToWebsite = linkToWebsite
         if (hotel.country.name != nameCountry){
             hotel.country = Country.findByName(nameCountry)
         }

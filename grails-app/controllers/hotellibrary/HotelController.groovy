@@ -25,7 +25,8 @@ class HotelController {
         hotelService.saveHotel(
                 params.hotelName as String,
                 Integer.parseInt(params.rating),
-                params.country as String
+                params.country as String,
+                params.linkToWebsite as String
         )
         redirect(action: "hotels")
     }
@@ -35,7 +36,8 @@ class HotelController {
                 Long.parseLong(params.id),
                 params.hotelName as String,
                 Integer.parseInt(params.rating),
-                params.country as String
+                params.country as String,
+                params.linkToWebsite as String
         )
         redirect(action: "hotels")
     }

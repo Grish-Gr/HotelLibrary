@@ -19,9 +19,18 @@
         <p>Количество найденных отелей: ${list.size()}</p>
         <g:link controller="home" action="home">Начать новый поиск</g:link>
         <table>
-            <tr><th>Звездность</th><th>Название</th></tr>
+            <tr><th>Рейтинг</th><th>Название</th><th>Сайт</th></tr>
             <g:each in="${list}" var="hotel">
-                <tr><td>${hotel.rating}</td><td>${hotel.name}</td></tr>
+                <tr>
+                    <td>${hotel.rating}</td>
+                    <td>${hotel.name}</td>
+                    <td>
+                        <g:if test="${hotel.linkToWebsite != null}">
+                            <g:link url="${hotel.linkToWebsite}">Перейти на сайт</g:link>
+                        </g:if>
+                        <g:else>Нет данных о сайте</g:else>
+                    </td>
+                </tr>
             </g:each>
         </table>
     </div>
