@@ -2,6 +2,7 @@ package hotellibrary
 
 import grails.gorm.transactions.Transactional
 import javassist.NotFoundException
+import org.grails.datastore.mapping.query.api.BuildableCriteria
 
 @Transactional
 class HotelService {
@@ -33,8 +34,12 @@ class HotelService {
     }
 
     def getHotels(Integer page){
-        return [hotels: Hotel.list().drop(page * maxItemsInPage).take(maxItemsInPage),
-                hasPrev: page > 0,
-                hasNext: Hotel.count() > maxItemsInPage * (page + 1)]
+        BuildableCriteria criteria = Hotel.createCriteria()
+        List<Hotel> hotels = criteria.list {
+            firstResult(page * maxItemsInPage)
+            maxResults(maxItemsInPage)
+        }
+        int countPages = (Hotel.count() + maxItemsInPage - 1) / maxItemsInPage
+        return [hotels: hotels, countPages: countPages]
     }
 }

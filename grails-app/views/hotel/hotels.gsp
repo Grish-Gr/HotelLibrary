@@ -34,7 +34,24 @@
 </div>
 <footer>
     <div class="pagination_container">
-        <div style="text-align: right">
+        <g:link controller="hotel" action="hotels" params="[page: 0]">
+            <button type="button" class="btn btn-outline-secondary"><<</button>
+        </g:link>
+        <g:each in="${listPaginationPages}" var="page">
+            <g:link controller="hotel" action="hotels" params="[page: page - 1]">
+                <g:if test="${page - 1 == currentPage}">
+                    <button type="button" class="btn btn-secondary">${page}</button>
+                </g:if>
+                <g:else>
+                    <button type="button" class="btn btn-outline-secondary">${page}</button>
+                </g:else>
+            </g:link>
+        </g:each>
+        <g:link controller="hotel" action="hotels" params="[page: lastPage - 1]">
+            <button type="button" class="btn btn-outline-secondary">>></button>
+        </g:link>
+
+        %{--<div style="text-align: right">
             <g:if test="${hasPrev}">
                 <g:link controller="hotel" action="hotels" params="[page: page - 1]">
                     <button type="button" class="btn btn-outline-secondary">Назад</button>
@@ -47,7 +64,7 @@
                     <button type="button" class="btn btn-outline-secondary">Дальше</button>
                 </g:link>
             </g:if>
-        </div>
+        </div>--}%
     </div>
 </footer>
 </body>

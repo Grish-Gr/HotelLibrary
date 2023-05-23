@@ -1,6 +1,7 @@
 package hotellibrary
 
 import grails.gorm.transactions.Transactional
+import org.grails.datastore.mapping.query.api.BuildableCriteria
 
 @Transactional
 class CountryService {
@@ -28,9 +29,13 @@ class CountryService {
     }
 
     def getCountries(Integer page){
-        return [countries: Country.list().drop(maxItemsInPage * page).take(maxItemsInPage),
-                hasPrev: page > 0,
-                hasNext: Country.count() > maxItemsInPage * (page + 1)]
+        BuildableCriteria criteria = Country.createCriteria()
+        List<Country> countries = criteria.list {
+            firstResult(page * maxItemsInPage)
+            maxResults(maxItemsInPage)
+        }
+        int countPages = (Country.count() + maxItemsInPage - 1) / maxItemsInPage
+        return [countries: countries, countPage: countPages]
     }
 
     List<Country> getCountries(){

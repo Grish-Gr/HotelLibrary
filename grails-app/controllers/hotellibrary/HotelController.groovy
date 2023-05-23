@@ -6,10 +6,11 @@ class HotelController {
 
     def hotels(Integer page) {
         def res = hotelService.getHotels(page ?: 0)
+        List<Integer> listPaginationPages = getListAvailablePages(page ?: 0, res.countPages)
         render view: "hotels", model: [listHotel: res.hotels,
-                                       page: page ?: 0,
-                                       hasPrev: res.hasPrev,
-                                       hasNext: res.hasNext]
+                                       currentPage: page ?: 0,
+                                       listPaginationPages: listPaginationPages,
+                                       lastPage: res.countPages]
     }
 
     def hotel(Long id){
@@ -45,5 +46,25 @@ class HotelController {
     def deleteHotel(){
         hotelService.deleteHotel(Long.parseLong(params.id))
         redirect(action: "hotels")
+    }
+
+    private List<Integer> getListAvailablePages(int currentPage, int countPages){
+        List<Integer> availablePages = new ArrayList<>()
+        if (currentPage < 3){
+            for (int i = 0; i < 5 && i < countPages; i++){
+                availablePages.add(i + 1)
+            }
+            return availablePages
+        }
+        if (countPages - currentPage < 5){
+            for (int i = countPages - 5; i < countPages; i++){
+                availablePages.add(i + 1)
+            }
+            return availablePages
+        }
+        for (int i = currentPage - 2; i < currentPage + 3 && i < countPages; i++){
+            availablePages.add(i + 1)
+        }
+        return availablePages
     }
 }
