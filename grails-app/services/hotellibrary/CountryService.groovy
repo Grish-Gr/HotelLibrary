@@ -1,11 +1,11 @@
 package hotellibrary
 
+import grails.gorm.DetachedCriteria
 import grails.gorm.transactions.Transactional
 import org.grails.datastore.mapping.query.api.BuildableCriteria
 
 @Transactional
 class CountryService {
-    private final maxItemsInPage = 10
 
     def getById(Long id){
         return Country.get(id)
@@ -17,7 +17,9 @@ class CountryService {
 
     Country deleteCountry(Long id){
         Country country = Country.get(id)
-        Hotel.findAllByCountry(country).collect({ it -> it.delete() })
+        Hotel.where {
+            it.country == country
+        } as DetachedCriteria
         return country.delete()
     }
 
@@ -28,14 +30,14 @@ class CountryService {
         return country.save()
     }
 
-    def getCountries(Integer page){
+    def getCountries(int page, int maxItemsInPage){
         BuildableCriteria criteria = Country.createCriteria()
         List<Country> countries = criteria.list {
             firstResult(page * maxItemsInPage)
             maxResults(maxItemsInPage)
         }
         int countPages = (Country.count() + maxItemsInPage - 1) / maxItemsInPage
-        return [countries: countries, countPage: countPages]
+        return [countries: countries, countPages: countPages]
     }
 
     List<Country> getCountries(){

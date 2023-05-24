@@ -7,8 +7,6 @@ import org.grails.datastore.mapping.query.api.BuildableCriteria
 @Transactional
 class HotelService {
 
-    private final maxItemsInPage = 10
-
     Hotel getById(Long id){
         return Hotel.get(id)
     }
@@ -33,7 +31,7 @@ class HotelService {
         return hotel.save()
     }
 
-    def getHotels(Integer page){
+    def getHotels(Integer page, int maxItemsInPage){
         BuildableCriteria criteria = Hotel.createCriteria()
         List<Hotel> hotels = criteria.list {
             firstResult(page * maxItemsInPage)

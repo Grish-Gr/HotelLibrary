@@ -19,14 +19,14 @@
     <div class="search_container">
         <div class="form_search">
             <h3 class="title_form_search">Справочник отелей</h3>
-            <g:form controller="home" action="search" class="form" method="post">
+            <g:form controller="home" action="search" class="form">
                 <div class="form-group">
                     <g:textField name="searchName" placeholder="Название отеля"/>
                 </div>
                 <div class="form-group">
                     <g:select name="country" from="${countries}"
                               optionValue="" optionKey=""
-                              noSelection="${['null':'Любая']}"/>
+                              noSelection="${[null: "Любая"]}"/>
                 </div>
                 <fieldset class="submit">
                     <g:submitButton name="send" value="Найти" class="btn btn-success" />

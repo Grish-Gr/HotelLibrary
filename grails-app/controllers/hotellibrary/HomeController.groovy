@@ -1,7 +1,6 @@
 package hotellibrary
 
 class HomeController {
-
     SearchHotelService searchHotelService
     CountryService countryService
 
@@ -10,7 +9,7 @@ class HomeController {
     }
 
     def search(String searchName, String country) {
-        render view: "table",
-                model: [list: searchHotelService.searchHotelByName(searchName, country)]
+        List<Hotel> hotels = searchHotelService.searchHotelByName(searchName, country)
+        render view: "table", model: [hotels: hotels]
     }
 }

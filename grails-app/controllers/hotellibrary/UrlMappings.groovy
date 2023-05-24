@@ -5,7 +5,7 @@ class UrlMappings {
     static mappings = {
         "/"(controller: "home", action:"home")
         "/home"(controller: "home", action:"home")
-        "/home/search/$searchName?/$country?"(controller: "home", action:"search")
+        "/home/search/$page?"(controller: "home", action:"search")
 
         "/hotels/$page?"(controller: "hotel", action:"hotels")
         "/hotel/$id?"(controller: "hotel", action:"hotel")

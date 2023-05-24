@@ -1,15 +1,22 @@
 package hotellibrary
 
+import grails.gorm.DetachedCriteria
+
 class CountryController {
     HotelService hotelService
     CountryService countryService
+    private final int countAvailablePages = 5
+    private final int maxItemsInPage = 10
 
     def countries(Integer page) {
-        def res = countryService.getCountries(page ?: 0)
+        def res = countryService.getCountries(page ?: 0, maxItemsInPage)
+        List<Integer> listPaginationPages = PaginationResolver.getListAvailablePages(
+                page ?: 0, res.countPages, countAvailablePages
+        )
         render view: "countries", model: [listCountry: res.countries,
-                                          page: page ?: 0,
-                                          hasNext: res.hasNext,
-                                          hasPrev: res.hasPrev]
+                                          currentPage: page ?: 0,
+                                          listPaginationPages: listPaginationPages,
+                                          lastPage: res.countPages]
     }
 
     def country(Long id){

@@ -3,10 +3,14 @@ package hotellibrary
 class HotelController {
     HotelService hotelService
     CountryService countryService
+    private final int countAvailablePages = 5
+    private final int maxItemsInPage = 10
 
     def hotels(Integer page) {
-        def res = hotelService.getHotels(page ?: 0)
-        List<Integer> listPaginationPages = getListAvailablePages(page ?: 0, res.countPages)
+        def res = hotelService.getHotels(page ?: 0, maxItemsInPage)
+        List<Integer> listPaginationPages = PaginationResolver.getListAvailablePages(
+                page ?: 0, res.countPages, countAvailablePages
+        )
         render view: "hotels", model: [listHotel: res.hotels,
                                        currentPage: page ?: 0,
                                        listPaginationPages: listPaginationPages,
@@ -46,25 +50,5 @@ class HotelController {
     def deleteHotel(){
         hotelService.deleteHotel(Long.parseLong(params.id))
         redirect(action: "hotels")
-    }
-
-    private List<Integer> getListAvailablePages(int currentPage, int countPages){
-        List<Integer> availablePages = new ArrayList<>()
-        if (currentPage < 3){
-            for (int i = 0; i < 5 && i < countPages; i++){
-                availablePages.add(i + 1)
-            }
-            return availablePages
-        }
-        if (countPages - currentPage < 5){
-            for (int i = countPages - 5; i < countPages; i++){
-                availablePages.add(i + 1)
-            }
-            return availablePages
-        }
-        for (int i = currentPage - 2; i < currentPage + 3 && i < countPages; i++){
-            availablePages.add(i + 1)
-        }
-        return availablePages
     }
 }
