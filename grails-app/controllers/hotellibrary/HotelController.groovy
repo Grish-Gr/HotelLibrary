@@ -7,12 +7,14 @@ class HotelController {
     private final int maxItemsInPage = 10
 
     def hotels(Integer page) {
-        def res = hotelService.getHotels(page ?: 0, maxItemsInPage)
+        int currentPage = page ?: 0
+        currentPage = currentPage < 0 ? 0 : currentPage
+        def res = hotelService.getHotels(currentPage, maxItemsInPage)
         List<Integer> listPaginationPages = PaginationResolver.getListAvailablePages(
-                page ?: 0, res.countPages, countAvailablePages
+                currentPage, res.countPages, countAvailablePages
         )
         render view: "hotels", model: [listHotel: res.hotels,
-                                       currentPage: page ?: 0,
+                                       currentPage: currentPage,
                                        listPaginationPages: listPaginationPages,
                                        lastPage: res.countPages]
     }

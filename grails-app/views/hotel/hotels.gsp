@@ -34,9 +34,11 @@
 </div>
 <footer>
     <div class="pagination_container">
-        <g:link controller="hotel" action="hotels" params="[page: 0]">
-            <button type="button" class="btn btn-outline-secondary" style="margin-right: 4px"><<</button>
-        </g:link>
+        <g:if test="${listPaginationPages.size() < lastPage}">
+            <g:link controller="hotel" action="hotels" params="[page: 0]">
+                <button type="button" class="btn btn-outline-secondary" style="margin-right: 4px"><<</button>
+            </g:link>
+        </g:if>
         <g:each in="${listPaginationPages}" var="page">
             <g:link controller="hotel" action="hotels" params="[page: page - 1]">
                 <g:if test="${page - 1 == currentPage}">
@@ -47,9 +49,11 @@
                 </g:else>
             </g:link>
         </g:each>
-        <g:link controller="hotel" action="hotels" params="[page: lastPage - 1]">
-            <button type="button" class="btn btn-outline-secondary" style="margin-left: 4px">>></button>
-        </g:link>
+        <g:if test="${listPaginationPages.size() < lastPage}">
+            <g:link controller="hotel" action="hotels" params="[page: lastPage - 1]">
+                <button type="button" class="btn btn-outline-secondary" style="margin-left: 4px">>></button>
+            </g:link>
+        </g:if>
     </div>
 </footer>
 </body>

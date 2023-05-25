@@ -16,11 +16,11 @@ class CountryService {
     }
 
     Country deleteCountry(Long id){
-        Country country = Country.get(id)
+        Country deleteCountry = Country.get(id)
         Hotel.where {
-            it.country == country
+            country == deleteCountry
         } as DetachedCriteria
-        return country.delete()
+        return deleteCountry.delete()
     }
 
     Country updateInfoCountry(Long id, String name, String capital){
