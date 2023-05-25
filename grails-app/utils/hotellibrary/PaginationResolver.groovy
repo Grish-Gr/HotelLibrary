@@ -2,7 +2,7 @@ package hotellibrary
 
 class PaginationResolver {
 
-    static List<Integer> getListAvailablePages(int currentPage, int countPages, int countAvailablePages){
+    static List<Integer> getListAvailablePages(Integer currentPage, Integer countPages, Integer countAvailablePages){
         List<Integer> availablePages = new ArrayList<>()
         int countLeftPages = (countAvailablePages + 1) / 2
         if (currentPage < countLeftPages){

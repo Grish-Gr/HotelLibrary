@@ -4,14 +4,16 @@ table {
     width: 100%;
     border: 1px solid grey;
 }
-/* границы ячеек первого ряда таблицы */
 th {
     text-align: left;
     padding: 2px;
+    margin: 4px;
     border: 1px solid grey;
 }
-/* границы ячеек тела таблицы */
+table .rating {
+    width: 156px;
+}
 td {
-    padding: 2px;
+    padding: 6px;
     border: 1px solid grey;
 }

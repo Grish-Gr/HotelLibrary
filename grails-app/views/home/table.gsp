@@ -16,13 +16,19 @@
     </ul>
 </nav>
 <div class="main">
-    <p>Количество найденных отелей: ${hotels.size()}</p>
+    <p>Количество найденных отелей: ${countEntries}</p>
     <g:link controller="home" action="home">
         <button class="btn btn-outline-secondary">Начать новый поиск</button>
     </g:link>
     <table>
         <g:if test="${hotels.size() > 0}">
-            <tr><th>Рейтинг</th><th>Название</th><th>Сайт</th></tr>
+            <tr>
+                <th class="rating">
+                    Рейтинг
+                </th>
+                <th>Название</th>
+                <th>Сайт</th>
+            </tr>
             <g:each in="${hotels}" var="hotel">
                 <tr>
                     <td>${hotel.rating}</td>
@@ -38,5 +44,32 @@
         </g:if>
     </table>
 </div>
+<footer>
+    <div class="pagination_container">
+        <g:if test="${listPaginationPages.size() < lastPage}">
+            <g:link controller="home" action="search"
+                    params="[page: 0, searchName: params.searchName, country: params.country]">
+                <button type="button" class="btn btn-outline-secondary" style="margin-right: 4px"><<</button>
+            </g:link>
+        </g:if>
+        <g:each in="${listPaginationPages}" var="page">
+            <g:link controller="home" action="search"
+                    params="[page: page - 1, searchName: params.searchName, country: params.country]">
+                <g:if test="${page - 1 == currentPage}">
+                    <button type="button" class="btn btn-secondary">${page}</button>
+                </g:if>
+                <g:else>
+                    <button type="button" class="btn btn-outline-secondary">${page}</button>
+                </g:else>
+            </g:link>
+        </g:each>
+        <g:if test="${listPaginationPages.size() < lastPage}">
+            <g:link controller="home" action="search"
+                    params="[page: lastPage - 1, searchName: params.searchName, country: params.country]">
+                <button type="button" class="btn btn-outline-secondary" style="margin-left: 4px">>></button>
+            </g:link>
+        </g:if>
+    </div>
+</footer>
 </body>
 </html>

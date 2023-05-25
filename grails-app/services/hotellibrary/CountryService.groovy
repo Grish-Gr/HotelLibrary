@@ -30,7 +30,7 @@ class CountryService {
         return country.save()
     }
 
-    def getCountries(int page, int maxItemsInPage){
+    def getCountries(Integer page, Integer maxItemsInPage){
         BuildableCriteria criteria = Country.createCriteria()
         List<Country> countries = criteria.list {
             firstResult(page * maxItemsInPage)

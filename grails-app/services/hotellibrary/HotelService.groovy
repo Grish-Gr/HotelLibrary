@@ -31,7 +31,7 @@ class HotelService {
         return hotel.save()
     }
 
-    def getHotels(Integer page, int maxItemsInPage){
+    def getHotels(Integer page, Integer maxItemsInPage){
         BuildableCriteria criteria = Hotel.createCriteria()
         List<Hotel> hotels = criteria.list {
             firstResult(page * maxItemsInPage)
